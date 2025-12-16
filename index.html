@@ -14,14 +14,17 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #d9d9d9; /* lighter grey overall page */
+            background-color: #d9d9d9;
             color: #212529;
         }
 
         /* Slightly darker grey for section splits */
         .section-accent {
-            background-color: #c2c2c2; /* slightly darker grey */
+            background-color: #c2c2c2;
             padding: 3rem 0;
+            margin: 2rem auto;
+            border: 2px solid #0d6efd; /* Box around each section */
+            border-radius: 10px;
         }
 
         /* Header colors */
@@ -29,7 +32,7 @@
             background-color: #0d6efd !important;
         }
 
-        /* Box styling */
+        /* Box styling for inner content */
         .content-box {
             padding: 1rem;
         }
@@ -38,6 +41,14 @@
         .fitness-img {
             max-width: 100%;
             border-radius: 0.5rem;
+        }
+
+        /* Section titles bold and underlined */
+        h2 {
+            font-weight: bold;
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -237,4 +248,3 @@
 
 </body>
 </html>
-

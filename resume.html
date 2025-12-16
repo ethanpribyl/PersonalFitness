@@ -9,7 +9,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="styles.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        /* Section boxes */
+        .resume-section {
+            border: 2px solid #0d6efd;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #ffffff;
+        }
+
+        /* Section titles */
+        h2 {
+            font-weight: bold;
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Profile image */
+        .profile-img {
+            max-width: 180px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -33,14 +72,9 @@
 <header class="bg-primary bg-gradient text-white py-5 mt-5">
     <div class="container px-4">
         <div class="row align-items-center text-center text-lg-start">
-
             <!-- Profile Image -->
             <div class="col-lg-3 text-center mb-3 mb-lg-0">
-                <img
-                    src="images/Myface.png"
-                    alt="Ethan Pribyl"
-                    class="img-fluid rounded-circle shadow"
-                    style="max-width: 180px;">
+                <img src="images/Myface.png" alt="Ethan Pribyl" class="profile-img">
             </div>
 
             <!-- Name + Contact -->
@@ -48,91 +82,85 @@
                 <h1 class="fw-bolder">Ethan A. Pribyl</h1>
                 <p class="lead mb-1">(623) 301-3119 | epribyl@byu.edu</p>
                 <p class="mb-0">
-                    <a href="https://www.linkedin.com/in/ethan-pribyl"
-                       class="text-white text-decoration-underline"
-                       target="_blank">
+                    <a href="https://www.linkedin.com/in/ethan-pribyl" class="text-white" target="_blank">
                         LinkedIn Profile
                     </a>
                 </p>
             </div>
-
         </div>
     </div>
 </header>
 
 <!-- Resume Content -->
-<section class="py-5">
-    <div class="container px-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-9">
+<div class="container px-4 py-5">
 
-                <!-- Education -->
-                <h2 class="mb-3">Education</h2>
-                <hr>
-                <h5>Brigham Young University – Marriott School of Business</h5>
-                <p class="mb-1"><strong>B.S. in Pre-Business</strong>, Minor in Spanish</p>
-                <p class="text-muted">Expected April 2028 | GPA: 3.78 / 4.00</p>
-                <ul>
-                    <li>Finance Society Member, Investment Banking Club Member</li>
-                    <li>Relevant Coursework: FIN 201, FIN 220, ACC 200, ECON 110, IS 201, MSB 464</li>
-                </ul>
+    <!-- Education Section -->
+    <section class="resume-section">
+        <h2>Education</h2>
+        <h5>Brigham Young University – Marriott School of Business</h5>
+        <p class="mb-1"><strong>B.S. in Pre-Business</strong>, Minor in Spanish</p>
+        <p class="text-muted">Expected April 2028 | GPA: 3.78 / 4.00</p>
+        <ul>
+            <li>Finance Society Member, Investment Banking Club Member</li>
+            <li>Relevant Coursework: FIN 201, FIN 220, ACC 200, ECON 110, IS 201, MSB 464</li>
+        </ul>
+    </section>
 
-                <!-- Experience -->
-                <h2 class="mt-5 mb-3">Experience</h2>
-                <hr>
+    <!-- Experience Section -->
+    <section class="resume-section">
+        <h2>Experience</h2>
 
-                <h5>Concordia Capital — <span class="text-muted">Intern</span></h5>
-                <p class="text-muted">Provo, UT | Oct 2025 – Present</p>
-                <ul>
-                    <li>Supported financial analysis, modeling, and valuation for client transactions</li>
-                    <li>Assisted in preparing pitch books, presentations, and market research</li>
-                    <li>Contributed to deal sourcing by identifying potential clients and tracking market trends</li>
-                </ul>
+        <h5>Concordia Capital — <span class="text-muted">Intern</span></h5>
+        <p class="text-muted">Provo, UT | Oct 2025 – Present</p>
+        <ul>
+            <li>Supported financial analysis, modeling, and valuation for client transactions</li>
+            <li>Assisted in preparing pitch books, presentations, and market research</li>
+            <li>Contributed to deal sourcing by identifying potential clients and tracking market trends</li>
+        </ul>
 
-                <h5 class="mt-4">Mountain America Credit Union — <span class="text-muted">Member Service Representative</span></h5>
-                <p class="text-muted">Spanish Fork, UT | Aug 2025 – Present</p>
-                <ul>
-                    <li>Collaborated with a team of 8 to deliver financial services to members</li>
-                    <li>Resolved disputes and interpreted financial statements while maintaining quality standards</li>
-                    <li>Analyzed member finances to recommend optimal products and services</li>
-                </ul>
+        <h5 class="mt-4">Mountain America Credit Union — <span class="text-muted">Member Service Representative</span></h5>
+        <p class="text-muted">Spanish Fork, UT | Aug 2025 – Present</p>
+        <ul>
+            <li>Collaborated with a team of 8 to deliver financial services to members</li>
+            <li>Resolved disputes and interpreted financial statements while maintaining quality standards</li>
+            <li>Analyzed member finances to recommend optimal products and services</li>
+        </ul>
 
-                <h5 class="mt-4">American Fire Protection LLC — <span class="text-muted">Financial Project Manager</span></h5>
-                <p class="text-muted">Phoenix, AZ | Jan 2025 – Aug 2025</p>
-                <ul>
-                    <li>Improved sales tactics and customer practices to boost performance</li>
-                    <li>Refined financial tracking and addressed owner concerns</li>
-                    <li>Managed and digitized business operations using AI-driven financial tools</li>
-                </ul>
+        <h5 class="mt-4">American Fire Protection LLC — <span class="text-muted">Financial Project Manager</span></h5>
+        <p class="text-muted">Phoenix, AZ | Jan 2025 – Aug 2025</p>
+        <ul>
+            <li>Improved sales tactics and customer practices to boost performance</li>
+            <li>Refined financial tracking and addressed owner concerns</li>
+            <li>Managed and digitized business operations using AI-driven financial tools</li>
+        </ul>
+    </section>
 
-                <!-- Leadership -->
-                <h2 class="mt-5 mb-3">Leadership & Service</h2>
-                <hr>
-                <h5>The Church of Jesus Christ of Latter-day Saints — <span class="text-muted">Volunteer Representative</span></h5>
-                <p class="text-muted">Santiago, Chile | Jul 2022 – Jul 2024</p>
-                <ul>
-                    <li>Achieved fluency in Spanish through immersive service</li>
-                    <li>Led and trained a team of 18 volunteers toward weekly and monthly goals</li>
-                    <li>Developed strong interpersonal, leadership, and teaching skills</li>
-                </ul>
+    <!-- Leadership & Service Section -->
+    <section class="resume-section">
+        <h2>Leadership & Service</h2>
+        <h5>The Church of Jesus Christ of Latter-day Saints — <span class="text-muted">Volunteer Representative</span></h5>
+        <p class="text-muted">Santiago, Chile | Jul 2022 – Jul 2024</p>
+        <ul>
+            <li>Achieved fluency in Spanish through immersive service</li>
+            <li>Led and trained a team of 18 volunteers toward weekly and monthly goals</li>
+            <li>Developed strong interpersonal, leadership, and teaching skills</li>
+        </ul>
+    </section>
 
-                <!-- Skills -->
-                <h2 class="mt-5 mb-3">Awards, Skills & Interests</h2>
-                <hr>
-                <ul>
-                    <li>Fluent in Spanish</li>
-                    <li>Extensive sales and communication training</li>
-                    <li>World War history enthusiast</li>
-                </ul>
+    <!-- Awards, Skills & Interests Section -->
+    <section class="resume-section">
+        <h2>Awards, Skills & Interests</h2>
+        <ul>
+            <li>Fluent in Spanish</li>
+            <li>Extensive sales and communication training</li>
+            <li>World War history enthusiast</li>
+        </ul>
+    </section>
 
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-

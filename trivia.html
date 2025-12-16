@@ -7,9 +7,16 @@
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border-radius: 10px; }
+        h2, h3 { font-weight: bold; }
+    </style>
 </head>
 
-<body class="bg-light">
+<body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -34,14 +41,6 @@
         <p class="lead">Test your knowledge of sports history across centuries and cultures</p>
     </div>
 </header>
-
-<!-- GIF HEADER -->
-<section class="py-4 text-center">
-    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
-         alt="Weightlifting gif"
-         class="img-fluid rounded shadow"
-         style="max-width: 420px;">
-</section>
 
 <!-- Game Explanation -->
 <section class="py-5">
@@ -73,16 +72,9 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card shadow-lg p-4 text-center">
-                    <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
-                         alt="Lifting weights gif"
-                         class="img-fluid rounded mb-3"
-                         style="max-width: 300px;">
-
                     <h4 id="questionCounter"></h4>
                     <h3 id="questionText" class="my-4"></h3>
-
                     <div id="answers" class="d-grid gap-2 mb-4"></div>
-
                     <div class="d-flex justify-content-between">
                         <span><strong>Time Left:</strong> <span id="timer">15</span>s</span>
                         <span><strong>Score:</strong> <span id="score">0</span></span>
@@ -99,15 +91,9 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="card shadow-lg p-4">
-                    <img src="https://media.giphy.com/media/xUPGcjQ6dJEjH5uwMw/giphy.gif"
-                         alt="Victory weightlifting gif"
-                         class="img-fluid rounded mb-3"
-                         style="max-width: 280px;">
-
                     <h2>Round Complete!</h2>
                     <p class="lead">Your final score:</p>
                     <h1 id="finalScore"></h1>
-
                     <a href="trivia.html" class="btn btn-primary mt-3">Play Again</a>
                 </div>
             </div>
@@ -118,43 +104,39 @@
 <!-- GAME SCRIPT -->
 <script>
 const questions = [
-  {q: "Who is considered the father of modern Olympic Games?", a:["Pierre de Coubertin","Jim Thorpe","Carl Lewis","Usain Bolt"], correct:0},
-  {q: "In which year were the first ancient Olympics held?", a:["776 BC","490 BC","323 BC","1896 AD"], correct:0},
-  {q: "Which athlete won 4 gold medals in track and field in 1936?", a:["Jesse Owens","Carl Lewis","Paavo Nurmi","Michael Johnson"], correct:0},
-  {q: "Which country hosted the 1932 Summer Olympics?", a:["USA","France","Italy","Germany"], correct:0},
-  {q: "Who won the first modern marathon?", a:["Spyridon Louis","Abebe Bikila","Emil Zatopek","Haile Gebrselassie"], correct:0},
-  {q: "Which sport did Jim Thorpe excel in?", a:["Decathlon","Swimming","Wrestling","Soccer"], correct:0},
-  {q: "Where were the 1908 Olympics held?", a:["London","Athens","Paris","Rome"], correct:0},
-  {q: "Which is the oldest major athletics competition?", a:["European Athletics Championships","World Championships","Olympic Games","Commonwealth Games"], correct:2},
-  {q: "Which female athlete won 9 Olympic golds in gymnastics?", a:["Nadia Comăneci","Simone Biles","Larisa Latynina","Mary Lou Retton"], correct:2},
-  {q: "Which country did Carl Lewis represent?", a:["USA","UK","Canada","Australia"], correct:0},
-  {q: "Who holds the record for most Olympic medals in athletics?", a:["Paavo Nurmi","Usain Bolt","Carl Lewis","Allyson Felix"], correct:3},
-  {q: "Which city hosted the 1984 Olympics?", a:["Los Angeles","Seoul","Moscow","Barcelona"], correct:0},
-  {q: "Which track event is 400m?", a:["Sprint","Middle distance","Long distance","Hurdles"], correct:1},
-  {q: "Which country hosted the first Winter Olympics?", a:["France","Switzerland","Italy","Norway"], correct:3},
-  {q: "What year did Usain Bolt set 100m world record?", a:["2008","2009","2012","2016"], correct:2},
-  {q: "Which athlete is nicknamed 'The Flying Finn'?", a:["Paavo Nurmi","Carl Lewis","Jesse Owens","Emil Zatopek"], correct:0},
-  {q: "Who is considered the first modern female Olympic champion?", a:["Hélène de Pourtalès","Fanny Blankers-Koen","Nadia Comăneci","Simone Biles"], correct:1},
-  {q: "Which ancient Greek event was a footrace?", a:["Stade","Pentathlon","Discus","Javelin"], correct:0},
-  {q: "Which city hosted 2000 Olympics?", a:["Sydney","Athens","Atlanta","Beijing"], correct:0},
-  {q: "Which athlete broke the 4-minute mile?", a:["Roger Bannister","Sebastian Coe","Paavo Nurmi","Hicham El Guerrouj"], correct:0},
-  {q: "Which country has won the most Olympic golds in athletics?", a:["USA","Soviet Union","Germany","UK"], correct:0},
-  {q: "Which is the longest Olympic track race?", a:["Marathon","1500m","5000m","10000m"], correct:0},
-  {q: "Which event combines 5 different sports?", a:["Pentathlon","Decathlon","Heptathlon","Triathlon"], correct:0},
-  {q: "Who was the first African American Olympic gold medalist?", a:["Jesse Owens","Allyson Felix","Carl Lewis","Louis Zamperini"], correct:0},
-  {q: "Which sport is the hammer throw part of?", a:["Athletics","Weightlifting","Discus","Shot Put"], correct:0},
-  {q: "Which athlete won 3 golds in 1968 Olympics?", a:["Tommy Smith","Carl Lewis","Jesse Owens","Bob Beamon"], correct:0},
-  {q: "Where were the 1924 Olympics held?", a:["Paris","Amsterdam","Los Angeles","Berlin"], correct:0},
-  {q: "Which female athlete was known as 'Flying Fish'?", a:["Katie Ledecky","Simone Biles","Larisa Latynina","Nadia Comăneci"], correct:0},
-  {q: "Which country hosted the 2008 Olympics?", a:["China","Greece","Brazil","UK"], correct:0},
-  {q: "Who is the youngest male Olympic gold medalist in athletics?", a:["Usain Bolt","Carl Lewis","Jesse Owens","Paavo Nurmi"], correct:0}
+  {q:"Who is considered the father of modern Olympic Games?", a:["Pierre de Coubertin","Jim Thorpe","Carl Lewis","Usain Bolt"], correct:0},
+  {q:"In which year were the first ancient Olympics held?", a:["776 BC","490 BC","323 BC","1896 AD"], correct:0},
+  {q:"Which athlete won 4 gold medals in track and field in 1936?", a:["Jesse Owens","Carl Lewis","Paavo Nurmi","Michael Johnson"], correct:0},
+  {q:"Which country hosted the 1932 Summer Olympics?", a:["USA","France","Italy","Germany"], correct:0},
+  {q:"Who won the first modern marathon?", a:["Spyridon Louis","Abebe Bikila","Emil Zatopek","Haile Gebrselassie"], correct:0},
+  {q:"Which sport did Jim Thorpe excel in?", a:["Decathlon","Swimming","Wrestling","Soccer"], correct:0},
+  {q:"Where were the 1908 Olympics held?", a:["London","Athens","Paris","Rome"], correct:0},
+  {q:"Which is the oldest major athletics competition?", a:["European Athletics Championships","World Championships","Olympic Games","Commonwealth Games"], correct:2},
+  {q:"Which female athlete won 9 Olympic golds in gymnastics?", a:["Nadia Comăneci","Simone Biles","Larisa Latynina","Mary Lou Retton"], correct:2},
+  {q:"Which country did Carl Lewis represent?", a:["USA","UK","Canada","Australia"], correct:0},
+  {q:"Who holds the record for most Olympic medals in athletics?", a:["Paavo Nurmi","Usain Bolt","Carl Lewis","Allyson Felix"], correct:3},
+  {q:"Which city hosted the 1984 Olympics?", a:["Los Angeles","Seoul","Moscow","Barcelona"], correct:0},
+  {q:"Which track event is 400m?", a:["Sprint","Middle distance","Long distance","Hurdles"], correct:1},
+  {q:"Which country hosted the first Winter Olympics?", a:["France","Switzerland","Italy","Norway"], correct:3},
+  {q:"What year did Usain Bolt set 100m world record?", a:["2008","2009","2012","2016"], correct:2},
+  {q:"Which athlete is nicknamed 'The Flying Finn'?", a:["Paavo Nurmi","Carl Lewis","Jesse Owens","Emil Zatopek"], correct:0},
+  {q:"Who is considered the first modern female Olympic champion?", a:["Hélène de Pourtalès","Fanny Blankers-Koen","Nadia Comăneci","Simone Biles"], correct:1},
+  {q:"Which ancient Greek event was a footrace?", a:["Stade","Pentathlon","Discus","Javelin"], correct:0},
+  {q:"Which city hosted 2000 Olympics?", a:["Sydney","Athens","Atlanta","Beijing"], correct:0},
+  {q:"Which athlete broke the 4-minute mile?", a:["Roger Bannister","Sebastian Coe","Paavo Nurmi","Hicham El Guerrouj"], correct:0},
+  {q:"Which country has won the most Olympic golds in athletics?", a:["USA","Soviet Union","Germany","UK"], correct:0},
+  {q:"Which is the longest Olympic track race?", a:["Marathon","1500m","5000m","10000m"], correct:0},
+  {q:"Which event combines 5 different sports?", a:["Pentathlon","Decathlon","Heptathlon","Triathlon"], correct:0},
+  {q:"Who was the first African American Olympic gold medalist?", a:["Jesse Owens","Allyson Felix","Carl Lewis","Louis Zamperini"], correct:0},
+  {q:"Which sport is the hammer throw part of?", a:["Athletics","Weightlifting","Discus","Shot Put"], correct:0},
+  {q:"Which athlete won 3 golds in 1968 Olympics?", a:["Tommy Smith","Carl Lewis","Jesse Owens","Bob Beamon"], correct:0},
+  {q:"Where were the 1924 Olympics held?", a:["Paris","Amsterdam","Los Angeles","Berlin"], correct:0},
+  {q:"Which female athlete was known as 'Flying Fish'?", a:["Katie Ledecky","Simone Biles","Larisa Latynina","Nadia Comăneci"], correct:0},
+  {q:"Which country hosted the 2008 Olympics?", a:["China","Greece","Brazil","UK"], correct:0},
+  {q:"Who is the youngest male Olympic gold medalist in athletics?", a:["Usain Bolt","Carl Lewis","Jesse Owens","Paavo Nurmi"], correct:0}
 ];
 
-let currentRound = [];
-let currentQuestion = 0;
-let score = 0;
-let timer;
-let timeLeft = 15;
+let currentRound = [], currentQuestion = 0, score = 0, timer, timeLeft = 15;
 
 const startBtn = document.getElementById("startBtn");
 const gameArea = document.getElementById("gameArea");
@@ -167,52 +149,46 @@ const scoreSpan = document.getElementById("score");
 const finalScore = document.getElementById("finalScore");
 
 function startGame() {
-    // Reset
-    score = 0;
-    currentQuestion = 0;
+    score = 0; currentQuestion = 0; timeLeft=15;
     scoreSpan.textContent = score;
-    timeLeft = 15;
     timerSpan.textContent = timeLeft;
 
-    // Pick 10 random questions
-    currentRound = [];
     let copy = [...questions];
+    currentRound = [];
     for(let i=0;i<10;i++){
         let idx = Math.floor(Math.random()*copy.length);
         currentRound.push(copy[idx]);
         copy.splice(idx,1);
     }
 
-    document.getElementById("startBtn").parentElement.parentElement.parentElement.parentElement.classList.add("d-none");
+    startBtn.parentElement.parentElement.parentElement.parentElement.classList.add("d-none");
     gameArea.classList.remove("d-none");
     showQuestion();
 }
 
-function showQuestion() {
-    if(currentQuestion >= currentRound.length){
-        endGame();
-        return;
-    }
+function showQuestion(){
+    if(currentQuestion >= currentRound.length){ endGame(); return; }
 
     let q = currentRound[currentQuestion];
     questionCounter.textContent = `Question ${currentQuestion+1} of ${currentRound.length}`;
     questionText.textContent = q.q;
 
     answersDiv.innerHTML = "";
-    q.a.forEach((answer, index)=>{
+    q.a.forEach((ans,i)=>{
         const btn = document.createElement("button");
         btn.className = "btn btn-outline-primary";
-        btn.textContent = answer;
-        btn.onclick = ()=> checkAnswer(index);
+        btn.textContent = ans;
+        btn.onclick = ()=>checkAnswer(i);
         answersDiv.appendChild(btn);
     });
 
-    timeLeft = 15;
+    timeLeft=15;
     timerSpan.textContent = timeLeft;
+    clearInterval(timer);
     timer = setInterval(()=>{
         timeLeft--;
         timerSpan.textContent = timeLeft;
-        if(timeLeft <= 0){
+        if(timeLeft<=0){
             clearInterval(timer);
             currentQuestion++;
             showQuestion();
@@ -220,19 +196,16 @@ function showQuestion() {
     },1000);
 }
 
-function checkAnswer(index){
+function checkAnswer(i){
     clearInterval(timer);
-    if(index === currentRound[currentQuestion].correct){
-        score++;
-        scoreSpan.textContent = score;
-    }
+    if(i===currentRound[currentQuestion].correct){ score++; scoreSpan.textContent=score; }
     currentQuestion++;
     showQuestion();
 }
 
 function endGame(){
     gameArea.classList.add("d-none");
-    finalScore.textContent = score + " / " + currentRound.length;
+    finalScore.textContent = score+" / "+currentRound.length;
     endScreen.classList.remove("d-none");
 }
 
